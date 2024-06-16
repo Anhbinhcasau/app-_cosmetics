@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_cosmetic/screen/sign_in.dart';
 
 class SignUpPageApp extends StatelessWidget {
   const SignUpPageApp({super.key});
@@ -46,23 +47,36 @@ class _SignUpPageState extends State<SignUpPage> {
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment:
+                    CrossAxisAlignment.start, // Align all children to the left
                 children: <Widget>[
-                  const Text(
-                    'Sign up now',
-                    style: TextStyle(fontSize: 35, color: Colors.green),
+                  const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Sign up',
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+                    ),
                   ),
                   const SizedBox(height: 50),
+                  const Text(
+                    'NAME',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: _nameController,
-                    decoration: InputDecoration(
-                      labelText: 'Name',
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide.none, // Remove the border
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Color(0xFFE3E7D3),
                     ),
-                    obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Your name ???';
@@ -71,15 +85,26 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   ),
                   const SizedBox(height: 20),
+                  const Text(
+                    'EMAIL',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
+                    decoration: const InputDecoration(
+                      labelStyle: TextStyle(
+                        fontSize: 15, // Change this to the desired size
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide.none, // Remove the border
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Color(0xFFE3E7D3),
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
@@ -93,15 +118,26 @@ class _SignUpPageState extends State<SignUpPage> {
                     },
                   ),
                   const SizedBox(height: 20),
+                  const Text(
+                    'PASSWORD',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: _passwordController,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
+                    decoration: const InputDecoration(
+                      labelStyle: TextStyle(
+                        fontSize: 15, // Change this to the desired size
+                      ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide.none, // Remove the border
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Color(0xFFE3E7D3),
                     ),
                     obscureText: true,
                     validator: (value) {
@@ -113,34 +149,44 @@ class _SignUpPageState extends State<SignUpPage> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 40),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Colors.green[600],
-                        borderRadius: BorderRadius.circular(15)),
+                      color: const Color(0xFFA2AA7B),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 52,
                     child: TextButton(
                       onPressed: _submitForm,
                       child: const Text(
                         'Sign Up',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                        style: TextStyle(fontSize: 22, color: Colors.white),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 25),
-                  const Row(
+                  const SizedBox(height: 40),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'Already have an account? ',
-                        style: TextStyle(fontSize: 16),
-                        textAlign: TextAlign.center,
+                      const Text(
+                        'Already have an account?',
+                        style: TextStyle(fontSize: 18),
                       ),
                       TextButton(
-                        onPressed: null,  // Add your onPressed function here
-                        child: Text(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginPage()),
+                          );
+                        },
+                        child: const Text(
                           'Sign In',
-                          style: TextStyle(fontSize: 16, color: Colors.blue),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFFA2AA7B),
+                          ),
                         ),
                       ),
                     ],

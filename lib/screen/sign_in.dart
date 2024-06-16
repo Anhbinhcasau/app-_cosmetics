@@ -1,3 +1,4 @@
+import 'package:app_cosmetic/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
 class LoginPageApp extends StatelessWidget {
@@ -47,8 +48,20 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   const Text(
-                    'Sign in now',
-                    style: TextStyle(fontSize: 35, color: Colors.green),
+                    'Welcome',
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  const Text(
+                    'Back!',
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
                   const SizedBox(height: 50),
                   TextFormField(
@@ -56,10 +69,10 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       labelText: 'Email',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Colors.white,
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
@@ -78,10 +91,10 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                       labelText: 'Password',
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
-                      fillColor: Colors.grey[200],
+                      fillColor: Colors.white,
                     ),
                     obscureText: true,
                     validator: (value) {
@@ -111,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.green[600],
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(25)),
                     child: TextButton(
                       onPressed: _submitForm,
                       child: const Text(
@@ -120,23 +133,35 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 25),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have an account?',
-                        style: TextStyle(fontSize: 16),
-                        textAlign: TextAlign.center,
-                      ),
-                      TextButton(
-                        onPressed: null,  // Add your onPressed function here
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(fontSize: 16, color: Colors.blue),
+                  const SizedBox(height: 35),
+                  const Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 30),
+                  Container(
+                    // width: double.infinity,
+                    height: 50,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpPage()),
+                        );
+                      }, // Add your onPressed function here
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.green,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                   // const SizedBox(height: 10),
                   // const Text(

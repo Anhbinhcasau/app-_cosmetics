@@ -1,3 +1,4 @@
+import 'package:app_cosmetic/screen/dashboard.dart';
 import 'package:app_cosmetic/screen/sign_in.dart';
 import 'package:app_cosmetic/screen/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -28,10 +29,7 @@ class _NavBarState extends State<NavBar> {
     SignUpPage(),
     //SignUpPage(),
     LoginPage(),
-    Text(
-      'Index 2: Dashboard',
-      style: optionStyle,
-    ),
+    DashboardMenu(),
     Text(
       'Index 3: Comments',
       style: optionStyle,
@@ -48,55 +46,10 @@ class _NavBarState extends State<NavBar> {
     });
   }
 
-  AppBar _buildAppBar() {
-    if (_selectedIndex == 2) {
-      return AppBar(
-        backgroundColor: Colors.green[700],
-        leading: PopupMenuButton<int>(
-          icon: const Icon(Icons.menu),
-          offset: const Offset(0, 60),
-          itemBuilder: (context) => [
-            const PopupMenuItem<int>(
-              value: 0,
-              child: ListTile(
-                leading: Icon(Icons.people),
-                title: Text('Your'),
-              ),
-            ),
-            const PopupMenuItem<int>(
-              value: 1,
-              child: ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Setting'),
-              ),
-            ),
-            const PopupMenuItem<int>(
-              value: 2,
-              child: ListTile(
-                leading: Icon(Icons.logout),
-                title: Text('Logout'),
-              ),
-            ),
-          ],
-        ),
-      );
-    } else {
-      // Default AppBar
-      return AppBar(
-        leading: BackButton(
-          onPressed: () {
-            // Handle back button press
-            Navigator.of(context).maybePop();
-          },
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
