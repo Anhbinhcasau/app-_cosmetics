@@ -1,6 +1,7 @@
 import 'package:app_cosmetic/screen/dashboard.dart';
 import 'package:app_cosmetic/screen/sign_in.dart';
 import 'package:app_cosmetic/screen/sign_up.dart';
+import 'package:app_cosmetic/screen/user_list_dashboard.dart';
 import 'package:flutter/material.dart';
 
 class NavBarApp extends StatelessWidget {
@@ -34,10 +35,7 @@ class _NavBarState extends State<NavBar> {
       'Index 3: Comments',
       style: optionStyle,
     ),
-    Text(
-      'Index 4: Users',
-      style: optionStyle,
-    ),
+    UserListDB(),
   ];
 
   void _onItemTapped(int index) {
