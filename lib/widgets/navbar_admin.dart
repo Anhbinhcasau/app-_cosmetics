@@ -1,4 +1,5 @@
 import 'package:app_cosmetic/screen/dashboard.dart';
+import 'package:app_cosmetic/screen/productdetail.dart';
 import 'package:app_cosmetic/screen/sign_in.dart';
 import 'package:app_cosmetic/screen/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +31,7 @@ class _NavBarState extends State<NavBar> {
     //SignUpPage(),
     LoginPage(),
     DashboardMenu(),
-    Text(
-      'Index 3: Comments',
-      style: optionStyle,
-    ),
+    ProductDetail(),
     Text(
       'Index 4: Users',
       style: optionStyle,
@@ -45,7 +43,6 @@ class _NavBarState extends State<NavBar> {
       _selectedIndex = index;
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
