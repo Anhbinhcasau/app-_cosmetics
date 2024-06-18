@@ -1,3 +1,5 @@
+import 'package:app_cosmetic/screen/category.dart';
+import 'package:app_cosmetic/screen/coupon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,10 +39,6 @@ class HomePage extends StatelessWidget {
         title: Text(
           'The Ordinary',
           style: TextStyle(color: Colors.black),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
         ),
         actions: [
           IconButton(
@@ -102,7 +100,13 @@ class HomePage extends StatelessWidget {
                       child: CategoryChip(label: 'Highly Rated'),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CategoriesScreen()),
+                        );
+                      },
                       child: Text('View all'),
                     ),
                   ],
@@ -120,7 +124,7 @@ class HomePage extends StatelessWidget {
             ),
             ProductCard(
               imageUrl:
-                  'https://ordinary.com.vn/wp-content/uploads/2020/09/the-ordinary-multi-peptide-copper.jpg',
+                  'https://product.hstatic.net/1000006063/product/bthe_2e4d05fa682a48e186a60839f42bd311_1024x1024.jpg',
               name: 'Granactive Retinoid 2%',
               price: '₹499',
               description:
@@ -137,7 +141,7 @@ class HomePage extends StatelessWidget {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
+            icon: Icon(Icons.local_offer),
             label: 'Explore',
           ),
           BottomNavigationBarItem(
@@ -194,41 +198,96 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Stack(
           children: [
-            Image.network(imageUrl, fit: BoxFit.cover),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                name,
-                style: GoogleFonts.poppins(
-                  textStyle:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Image.network(
+              imageUrl,
+              width: double.infinity,
+              height: 350,
+              fit: BoxFit.cover,
+            ),
+            Container(
+              width: double.infinity,
+              height: 350,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                gradient: LinearGradient(
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.6),
+                    Colors.transparent,
+                  ],
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(
-                description,
-                style: GoogleFonts.poppins(
-                  textStyle: TextStyle(color: Colors.grey),
-                ),
+            Positioned(
+              top: 16,
+              right: 16,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.favorite_border,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      // Add to favorites action
+                    },
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      Icons.shopping_cart_outlined,
+                      color: Colors.black,
+                    ),
+                    onPressed: () {
+                      // Add to cart action
+                    },
+                  ),
+                ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                price,
-                style: GoogleFonts.poppins(
-                  textStyle:
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
+            Positioned(
+              bottom: 16,
+              left: 16,
+              right: 16,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    description,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    price,
+                    style: GoogleFonts.poppins(
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
