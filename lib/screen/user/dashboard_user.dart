@@ -1,3 +1,4 @@
+import 'package:app_cosmetic/widgets/user/user.dart';
 import 'package:flutter/material.dart';
 
 class UserListDB extends StatefulWidget {
@@ -8,6 +9,7 @@ class UserListDB extends StatefulWidget {
 }
 
 class _UserListDBState extends State<UserListDB> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,9 +27,8 @@ class _UserListDBState extends State<UserListDB> {
           ],
         ),
       ),
-      body: Center(
-        child: Text('User List'),
-      ),
+      body: ListUser(),
+      
     );
   }
 }
