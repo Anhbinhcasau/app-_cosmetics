@@ -1,3 +1,4 @@
+import 'package:app_cosmetic/screen/forgot_pass.dart';
 import 'package:app_cosmetic/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
@@ -23,11 +24,12 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool isChecked = false;
 
   void _submitForm() {
     if (_formKey.currentState?.validate() ?? false) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Registration Successful')),
+        const SnackBar(content: Text('Xin chào !!')),
       );
     }
   }
@@ -39,6 +41,9 @@ class _LoginPageState extends State<LoginPage> {
         FocusManager.instance.primaryFocus?.unfocus();
       }),
       child: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+        ),
         body: Center(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
@@ -47,27 +52,20 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text(
-                    'Welcome',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w500,
+                  const Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      'Đăng nhập',
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
                     ),
-                    textAlign: TextAlign.start,
-                  ),
-                  const Text(
-                    'Back!',
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    textAlign: TextAlign.start,
                   ),
                   const SizedBox(height: 50),
                   TextFormField(
                     controller: _emailController,
                     decoration: InputDecoration(
-                      labelText: 'Email',
+                      hintText: 'Email',
+                      prefixIcon: Icon(Icons.people),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -77,19 +75,20 @@ class _LoginPageState extends State<LoginPage> {
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Hãy nhập email';
                       } else if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
                           .hasMatch(value)) {
-                        return 'Please enter a valid email address';
+                        return 'Email không hợp lệ';
                       }
                       return null;
                     },
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 30),
                   TextFormField(
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      hintText: 'Mật khẩu',
+                      prefixIcon: Icon(Icons.key),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -99,26 +98,47 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
+                        return 'Hãy nhập mật khẩu!';
                       } else if (value.length < 6) {
-                        return 'Password must be at least 6 characters long';
+                        return 'Mật khẩu phải có 6 ký tự';
                       }
                       return null;
                     },
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 30),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Forget Password?',
-                          style: TextStyle(fontSize: 15),
-                        ),
+                      Row(
+                        children: [
+                          Checkbox(
+                              value: isChecked,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isChecked = value!;
+                                });
+                              }),
+                          const Text('Nhớ mật khẩu',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w200,
+                              )),
+                        ],
                       ),
+                      IconButton(
+                        iconSize: 35,
+                        icon: const Icon(Icons.vpn_key),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ForgotPassPage()),
+                          );
+                        },
+                      )
                     ],
                   ),
+                  //const SizedBox(height: 10),
                   const SizedBox(height: 20),
                   Container(
                     width: double.infinity,
@@ -128,47 +148,76 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextButton(
                       onPressed: _submitForm,
                       child: const Text(
-                        'Sign Up',
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                        'Đăng nhập',
+                        style: TextStyle(fontSize: 22, color: Colors.white),
                       ),
                     ),
                   ),
+                  // const SizedBox(height: 50),
+
                   const SizedBox(height: 35),
-                  const Text(
-                    'Don\'t have an account?',
-                    style: TextStyle(fontSize: 18),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 30),
-                  Container(
-                    // width: double.infinity,
-                    height: 50,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignUpPage()),
-                        );
-                      }, // Add your onPressed function here
-                      child: const Text(
-                        'Sign Up',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Bạn chưa có tài khoản?',
                         style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.green,
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignUpPage()),
+                          );
+                        },
+                        child: const Text(
+                          'Đăng ký',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFFA2AA7B),
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
-                  // const SizedBox(height: 10),
-                  // const Text(
-                  //   'Or connect',
-                  //   style: TextStyle(fontSize: 16),
-                  //   textAlign: TextAlign.center,
-                  // ),
+                  const SizedBox(height: 20),
+                  const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "OR",
+                          style: TextStyle(fontWeight: FontWeight.w400),
+                        )
+                      ]),
+                  const SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/google.png',
+                        width: 40,
+                        height: 40,
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Image.asset(
+                        'assets/facebook.png',
+                        width: 40,
+                        height: 40,
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Image.asset(
+                        'assets/twitter.png',
+                        width: 40,
+                        height: 40,
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
