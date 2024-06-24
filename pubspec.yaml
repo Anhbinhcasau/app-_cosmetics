@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   dio: ^5.4.3+1
+
   expansion_tile_card: ^3.0.0
   fl_chart: ^0.68.0
   flutter:
@@ -16,6 +17,7 @@ dependencies:
   provider: ^6.1.2
   flutter_rating_bar: ^4.0.1
   google_fonts: ^6.2.1
+
 
 dev_dependencies:
   flutter_test:
@@ -30,3 +32,4 @@ flutter:
     - assets/instagram.png
     - assets/twitter.png
     - assets/product.js
+

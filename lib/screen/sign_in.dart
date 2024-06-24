@@ -63,7 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 50),
                   TextFormField(
                     controller: _emailController,
+
                     decoration: InputDecoration(
+
                       hintText: 'Email',
                       prefixIcon: Icon(Icons.people),
                       border: OutlineInputBorder(
@@ -87,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                   TextFormField(
                     controller: _passwordController,
                     decoration: InputDecoration(
+
                       hintText: 'Mật khẩu',
                       prefixIcon: Icon(Icons.key),
                       border: OutlineInputBorder(
