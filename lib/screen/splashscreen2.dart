@@ -19,7 +19,7 @@ class Splashscreen2 extends StatelessWidget {
           child: Stack(
             children: [
               Image.asset(
-                "assets/splash2.jpg",
+                "assets/splash_screen_2.jpg",
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,

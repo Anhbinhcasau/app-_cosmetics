@@ -16,7 +16,7 @@ class ShoppingCartPage extends StatefulWidget {
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
   List<Map<String, dynamic>> cartItems = [
-    {'name': 'Brown Jacket', 'size': 'XL', 'price': 83.97, 'quantity': 1},
+    {'name': 'Brown Jacket', 'size': 'XL', 'price': 83.98, 'quantity': 1},
     {'name': 'Brown Suite', 'size': 'L', 'price': 120.0, 'quantity': 1},
     {'name': 'Brown Jacket', 'size': 'XL', 'price': 83.97, 'quantity': 1},
   ];

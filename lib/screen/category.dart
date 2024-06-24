@@ -59,7 +59,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               'You can choose more than one',
               style: TextStyle(color: Colors.grey),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

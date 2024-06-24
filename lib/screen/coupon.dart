@@ -33,7 +33,7 @@ class _CouponsScreenState extends State<CouponsScreen> {
       'offer': 'Get 50% OFF for Combo'
     },
     {
-      'code': 'WELCOME200',
+      'code': 'WELCOME2000',
       'condition': 'Add items worth \$2 more to unlock',
       'offer': 'Get 50% OFF'
     },

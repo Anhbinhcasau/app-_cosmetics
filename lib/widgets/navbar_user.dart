@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.explore),
-            label: 'Explore',
+            label: 'Coupon',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),

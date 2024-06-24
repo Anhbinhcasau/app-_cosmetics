@@ -25,8 +25,7 @@ class Splashscreen1 extends StatelessWidget {
         splash: Column(
           children: [
             Center(
-                child: LottieBuilder.asset(
-                    "app_cosmetic/assets/Lottie/Animation - 1719079023706.json")),
+                child: LottieBuilder.asset("./assets/Lottie/Animation_1.json")),
           ],
         ),
         nextScreen: Splashscreen2(),

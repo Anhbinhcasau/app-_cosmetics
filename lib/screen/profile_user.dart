@@ -46,7 +46,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               CircleAvatar(
                 radius: 50,
                 backgroundImage: NetworkImage(
-                    'https://i.pinimg.com/564x/5f/6b/50/5f6b50ae839f59f5f002d25eb0e42a44.jpg'), // Replace with ctual image URL
+                    'https://i.pinimg.com/564x/5f/6b/50/5f6b50ae839f59f5f002d25eb0e42a44.jpg'),
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: CircleAvatar(
