@@ -1,3 +1,4 @@
+import 'package:app_cosmetic/screen/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,7 +31,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            // Handle back button press
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
           },
         ),
       ),

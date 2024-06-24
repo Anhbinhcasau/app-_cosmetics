@@ -1,11 +1,9 @@
+import 'package:app_cosmetic/screen/cart.dart';
 import 'package:app_cosmetic/screen/category.dart';
 import 'package:app_cosmetic/screen/coupon.dart';
+import 'package:app_cosmetic/screen/profile_user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-void main() {
-  runApp(MyApp());
-}
 
 class MyApp extends StatefulWidget {
   @override
@@ -43,11 +41,21 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.shopping_bag_outlined, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ShoppingCartPage()),
+              );
+            },
           ),
           IconButton(
             icon: Icon(Icons.notifications_none, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -109,6 +117,16 @@ class HomePage extends StatelessWidget {
                       },
                       child: Text('View all'),
                     ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CouponsScreen()),
+                        );
+                      },
+                      child: Text('Coupon'),
+                    ),
                   ],
                 ),
               ),
@@ -116,7 +134,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 10),
             ProductCard(
               imageUrl:
-                  'https://ordinary.com.vn/wp-content/uploads/2020/09/the-ordinary-multi-peptide-copper.jpg',
+                  'https://edited.beautybay.com/wp-content/uploads/2023/01/1-EDITED-ARTICLE-1.jpg',
               name: 'Granactive Retinoid 5%',
               price: '₹699',
               description:
