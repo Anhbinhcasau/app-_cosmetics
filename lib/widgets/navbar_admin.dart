@@ -1,7 +1,8 @@
 import 'package:app_cosmetic/screen/dashboard.dart';
+import 'package:app_cosmetic/screen/forgot_pass.dart';
+import 'package:app_cosmetic/screen/order/dashboard_order.dart';
 import 'package:app_cosmetic/screen/sign_in.dart';
-import 'package:app_cosmetic/screen/sign_up.dart';
-import 'package:app_cosmetic/screen/user_list_dashboard.dart';
+import 'package:app_cosmetic/screen/user/dashboard_user.dart';
 import 'package:flutter/material.dart';
 
 class NavBarApp extends StatelessWidget {
@@ -27,14 +28,10 @@ class _NavBarState extends State<NavBar> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    SignUpPage(),
-    //SignUpPage(),
+    DashboardOrder(),
     LoginPage(),
     DashboardMenu(),
-    Text(
-      'Index 3: Comments',
-      style: optionStyle,
-    ),
+    ForgotPassPage(),
     UserListDB(),
   ];
 
