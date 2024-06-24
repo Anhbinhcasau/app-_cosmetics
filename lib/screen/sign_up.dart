@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:app_cosmetic/screen/sign_in.dart';
-import 'package:flutter/widgets.dart';
 
 class SignUpPageApp extends StatelessWidget {
   const SignUpPageApp({super.key});
@@ -136,7 +133,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 40),
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(

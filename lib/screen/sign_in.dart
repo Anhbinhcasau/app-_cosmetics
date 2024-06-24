@@ -51,7 +51,6 @@ class _LoginPageState extends State<LoginPage> {
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   const Align(
                     alignment: Alignment.center,
@@ -64,15 +63,16 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 50),
                   TextFormField(
                     controller: _emailController,
-                    decoration: const InputDecoration(
+
+                    decoration: InputDecoration(
+
                       hintText: 'Email',
                       prefixIcon: Icon(Icons.people),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide.none, // Remove the border
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE3E7D3),
+                      fillColor: Colors.white,
                     ),
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
@@ -88,15 +88,15 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 30),
                   TextFormField(
                     controller: _passwordController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
+
                       hintText: 'Mật khẩu',
                       prefixIcon: Icon(Icons.key),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide.none, // Remove the border
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE3E7D3),
+                      fillColor: Colors.white,
                     ),
                     obscureText: true,
                     validator: (value) {
@@ -146,10 +146,8 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFA2AA7B),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    height: 52,
+                        color: Colors.green[600],
+                        borderRadius: BorderRadius.circular(25)),
                     child: TextButton(
                       onPressed: _submitForm,
                       child: const Text(
